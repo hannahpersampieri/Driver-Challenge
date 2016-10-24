@@ -53,19 +53,18 @@ def join_overlap(reads):
         # Compare prefix of one with suffix of another 
         # Make sure they are not the same index in the array
         for j in [num for num in range(len(reads)) if num != i]:
-            # Name the two selected strings for code readability.
             prefix = reads[i]
             suffix = reads[j]
-            # Begin finding the maximum overlap between the prefix and suffix strings.
+            # Begin finding the maximum overlap 
             k = 0
             while prefix[k:] != suffix[0:len(prefix[k:])]:
                 k += 1
-            # Store the overlap length and string indicies if they the longest thus far.
+            # Store the overlap length and string indicies if longest
             if len(prefix) - k > max_length:
                 max_length = len(prefix) - k
                 overlap_index = [i, j]
 
-    # Return all strings without maximum overlap, and then the merged string with maximum overlap.
+    # Return array with the merged string with maximum overlap.
     result = [reads[z] for z in range(len(reads)) if z not in overlap_index]
     result = result + [reads[overlap_index[0]] + reads[overlap_index[1]][max_length:]]
     return result
