@@ -45,6 +45,7 @@ def data_cleanup(inputs):
 # Given an array of strings, return the list of strings with the 
 # two strings having maximum overlap merged, the rest of the array unchanged.
 # Invariant: Overlap by 50% or more of the read to be merged
+# Method does not change, but this invariant ensures accuracy 
 
 def join_overlap(reads):
     max_length = -1
