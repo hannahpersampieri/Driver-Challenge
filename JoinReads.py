@@ -13,7 +13,9 @@ INPUT_FILENAME = 'test_data.txt'
 def main():
     initial_array = read_file()
     reads = data_cleanup(initial_array)
-    print join_reads(reads)
+    result = join_reads(reads)
+    print result
+    test_substring(reads, result)
 
 #Step 1, read input
 # make array of reads
@@ -70,11 +72,19 @@ def join_overlap(reads):
 # Where each element in our original array is a substring of the previous
 
 def join_reads(reads):
-   
     while len(reads) > 1:
         reads = join_overlap(reads)
 
     return reads[0]
+
+# Function that tests our result, since would be tedious 
+def test_substring(reads, result):
+	for word in reads:
+		if word not in result:
+			print "Result not correct"
+			return
+	print "Tests passed"
+	return
 
 if __name__ == '__main__':
     main()
