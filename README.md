@@ -17,7 +17,7 @@ This means:
 
 For this, I utilized the 'greedy algorithim' that continuously finds the shortest substring between elements in an array and merges them until there is only one element left in the array-- our desired result. Oftentimes, this algorithim does not properly produce the shortest substring, but for this problem, we have the invariant that each read that we merge into the substring must overlap by more than half of its length, thus making this algorithim much more likely to produce the desired output. The nice thing about this algorithim is that it finds maximal overlap, rather than just picking the first string that has *some* overlap.
 
-## Testing:
+### Testing:
 I used the shorter input sequence given as the "example" to test the output to ensure the shortest string was being found, and also wrote a function that prints a confirmation if every string is found as a substring in the result. These two checks allowed me to ensure that the resulting string wasn't longer or shorter than our desired result. Note that "test_data.txt" is the FASTA format file for the short example given in the problem. It is currently written in the code, but commenting it out and commenting in the line that puts in the "real" data allows for the testing of the real data.
 
 #### Some other notes about this project:
