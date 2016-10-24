@@ -78,7 +78,7 @@ def join_reads(reads):
         reads = join_overlap(reads)
     return reads[0]
 
-# Function that tests our result, since would be tedious 
+# Function that tests our result, since would be tedious otherwise
 def test_substring(reads, result):
 	for word in reads:
 		if word not in result:
