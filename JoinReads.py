@@ -7,7 +7,7 @@ import string
 # ATTAGACCTGCCGGAATAC
 INPUT_FILENAME = 'test_data.txt'
 
-# If the real data wants to be tested, use: 
+# If the larger dataset wants to be tested, uncomment below: 
 # INPUT_FILENAME = 'coding_challenge_data_set.txt'
 
 def main():
@@ -18,15 +18,16 @@ def main():
     test_substring(reads, result)
 
 #Step 1, read input
-# make array of reads
+# Make array of reads
+
 def read_file():
     file = open(INPUT_FILENAME, 'r')
     inputs = file.read().splitlines()
     return inputs
 
 # Step 2: Clean up data
-# This gives us an array where each element is what is printed on a new line in the .txt file. 
-# We now must join each fragment of the read: 
+# Previous function gives us an array where each element is what is printed on a new line in the .txt file. 
+# We now must join each fragment of the read, and remove labels: 
 
 def data_cleanup(inputs):
     result = []
@@ -43,6 +44,7 @@ def data_cleanup(inputs):
 # Step 3: Use a variation of the "Greedy algorithim" to find the longest substring 
 # Given an array of strings, return the list of strings with the 
 # two strings having maximum overlap merged, the rest of the array unchanged.
+# Invariant: Overlap by 50% or more of the read to be merged
 
 def join_overlap(reads):
     max_length = -1
@@ -74,7 +76,6 @@ def join_overlap(reads):
 def join_reads(reads):
     while len(reads) > 1:
         reads = join_overlap(reads)
-
     return reads[0]
 
 # Function that tests our result, since would be tedious 
